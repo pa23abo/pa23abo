@@ -31,12 +31,180 @@
     <h2>Portfolio</h2>
     <div class="portfolio-item">
       <h3>Project 1: Personal Blog</h3>
+    
       <p>A responsive personal blog built using HTML, CSS, and JavaScript.</p>
       <a href="project1-details.html" class="project-link">View Details</a>
     </div>
     <div class="portfolio-item">
       <h3>Project 2: Web Calculator</h3>
       <p>A JavaScript-based calculator with a focus on accessibility.</p>
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <h1>Accessible Calculator</h1>
+
+        <!-- Calculator Container -->
+        <div class="calculator">
+            <!-- Display -->
+            <div role="region" aria-live="assertive" class="display" id="display" aria-label="Calculator Display">0</div>
+
+            <!-- Button Grid -->
+            <div class="buttons">
+                <!-- Calculator Buttons -->
+                <button class="button" aria-label="7" onclick="appendToDisplay(7)" onkeydown="handleKeyDown(event)">7</button>
+                <button class="button" aria-label="8" onclick="appendToDisplay(8)" onkeydown="handleKeyDown(event)">8</button>
+                <button class="button" aria-label="9" onclick="appendToDisplay(9)" onkeydown="handleKeyDown(event)">9</button>
+                <button class="button operator" aria-label="Divide" onclick="appendToDisplay('/')">/</button>
+
+                <button class="button" aria-label="4" onclick="appendToDisplay(4)">4</button>
+                <button class="button" aria-label="5" onclick="appendToDisplay(5)">5</button>
+                <button class="button" aria-label="6" onclick="appendToDisplay(6)">6</button>
+                <button class="button operator" aria-label="Multiply" onclick="appendToDisplay('*')">*</button>
+
+                <button class="button" aria-label="1" onclick="appendToDisplay(1)">1</button>
+                <button class="button" aria-label="2" onclick="appendToDisplay(2)">2</button>
+                <button class="button" aria-label="3" onclick="appendToDisplay(3)">3</button>
+                <button class="button operator" aria-label="Subtract" onclick="appendToDisplay('-')">-</button>
+
+                <button class="button" aria-label="0" onclick="appendToDisplay(0)">0</button>
+                <button class="button" aria-label="Clear" onclick="clearDisplay()">C</button>
+                <button class="button operator" aria-label="Add" onclick="appendToDisplay('+')">+</button>
+                <button class="button operator" aria-label="Equals" onclick="calculateResult()">=</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.calculator {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.display {
+    background-color: #222;
+    color: #fff;
+    text-align: right;
+    font-size: 2em;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.button {
+    padding: 20px;
+    font-size: 1.5em;
+    text-align: center;
+    border: none;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:focus {
+    outline: 2px solid #ffcc00;
+}
+
+.button.operator {
+    background-color: #f9a825;
+    color: white;
+}
+
+.button.operator:hover {
+    background-color: #ffca28;
+}
+
+.button:active {
+    background-color: #ddd;
+}
+
+button[aria-label="Equals"]:focus {
+    background-color: #ff5722;
+}
+let currentInput = '0';
+
+function updateDisplay() {
+    const display = document.getElementById('display');
+    display.textContent = currentInput;
+}
+
+function appendToDisplay(value) {
+    if (currentInput === '0') {
+        currentInput = String(value);
+    } else {
+        currentInput += String(value);
+    }
+    updateDisplay();
+}
+
+function clearDisplay() {
+    currentInput = '0';
+    updateDisplay();
+}
+
+function calculateResult() {
+    try {
+        currentInput = String(eval(currentInput));
+        updateDisplay();
+    } catch (error) {
+        currentInput = 'Error';
+        updateDisplay();
+    }
+}
+
+// Handle keyboard input
+function handleKeyDown(event) {
+    const key = event.key;
+
+    if (key >= '0' && key <= '9') {
+        appendToDisplay(key);
+    } else if (key === 'Backspace') {
+        clearDisplay();
+    } else if (key === 'Enter') {
+        calculateResult();
+    } else if (['+', '-', '*', '/'].includes(key)) {
+        appendToDisplay(key);
+    }
+}
+
+// Add event listener for keyboard inputs
+document.addEventListener('keydown', handleKeyDown);
+
+
       <a href="project2-details.html" class="project-link">View Details</a>
     </div>
   </section>
