@@ -48,41 +48,7 @@
 </head>
 <body>
     <main>
-        <h1>Accessible Calculator</h1>
-
-        <!-- Calculator Container -->
-        <div class="calculator">
-            <!-- Display -->
-            <div role="region" aria-live="assertive" class="display" id="display" aria-label="Calculator Display">0</div>
-
-            <!-- Button Grid -->
-            <div class="buttons">
-                <!-- Calculator Buttons -->
-                <button class="button" aria-label="7" onclick="appendToDisplay(7)" onkeydown="handleKeyDown(event)">7</button>
-                <button class="button" aria-label="8" onclick="appendToDisplay(8)" onkeydown="handleKeyDown(event)">8</button>
-                <button class="button" aria-label="9" onclick="appendToDisplay(9)" onkeydown="handleKeyDown(event)">9</button>
-                <button class="button operator" aria-label="Divide" onclick="appendToDisplay('/')">/</button>
-
-                <button class="button" aria-label="4" onclick="appendToDisplay(4)">4</button>
-                <button class="button" aria-label="5" onclick="appendToDisplay(5)">5</button>
-                <button class="button" aria-label="6" onclick="appendToDisplay(6)">6</button>
-                <button class="button operator" aria-label="Multiply" onclick="appendToDisplay('*')">*</button>
-
-                <button class="button" aria-label="1" onclick="appendToDisplay(1)">1</button>
-                <button class="button" aria-label="2" onclick="appendToDisplay(2)">2</button>
-                <button class="button" aria-label="3" onclick="appendToDisplay(3)">3</button>
-                <button class="button operator" aria-label="Subtract" onclick="appendToDisplay('-')">-</button>
-
-                <button class="button" aria-label="0" onclick="appendToDisplay(0)">0</button>
-                <button class="button" aria-label="Clear" onclick="clearDisplay()">C</button>
-                <button class="button operator" aria-label="Add" onclick="appendToDisplay('+')">+</button>
-                <button class="button operator" aria-label="Equals" onclick="calculateResult()">=</button>
-            </div>
-        </div>
-    </main>
-
-    <script src="script.js"></script>
-</body>
+        <h1>Accessible Calculator</h1>            
 </html>
 body {
     font-family: Arial, sans-serif;
