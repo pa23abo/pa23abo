@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Philemon Agbor - Profile</title>
+  <title>Philemon Agbor's - Profile</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <header>
+   class="<header>
     <h1> Hi there, I'm Philemon Agbor</h1>
     <p> A Second-year Computer Science Student at the University of Hertfordshire</p>
-    <img src="profile.jpg" alt="Philemon Agbor" class="profile-img">
+    <img src="profile.jpg" alt="Philemon Agbor"profile-img">
   </header>
 
   <section id="about">
